@@ -1,0 +1,84 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+namespace org.agriculture.model.supplychain
+
+asset Legume identified by idLegume {
+  o String idLegume
+  o String owner
+}
+
+enum EtatListe {
+  o PRET_POUR_RECOLTE
+  o RECOLTÉ
+  o EN_LIVRAISON_A_LENTREPOT
+  o EN_LIVRAISON_AU_CLIENT
+  o LIVRÉ_A_LENTREPOT
+  o LIVRÉ_AU_CLIENT
+}
+
+asset ListeDesLegumes identified by listeId {
+  o String listeId
+  o EtatListe etat
+  --> Legume legume
+}
+
+abstract participant Utilisateur identified by uid {
+  o String uid
+  o String name
+}
+
+participant Client extends Utilisateur {
+  o String vorder
+}
+
+participant Entrepot extends Utilisateur {
+  
+}
+
+participant Agriculteur extends Utilisateur{
+
+}
+participant Transporteur extends Utilisateur{
+  
+}
+
+transaction D_CommandeClient{
+  --> ListeDesLegumes liste
+  --> Client client
+}
+
+transaction B_CommandeEntrepot{
+  --> ListeDesLegumes liste
+  --> Entrepot member
+}
+
+transaction A_Recolter{
+ --> ListeDesLegumes liste
+ --> Agriculteur member
+}
+
+transaction C_LivraisonEntrepot{
+ --> ListeDesLegumes liste
+ --> Legume legumeId
+ --> Entrepot entrepot
+ --> Transporteur id
+}
+
+transaction E_LivraisonClient{
+ --> ListeDesLegumes liste
+ --> Legume legumeId
+ --> Client client
+ --> Transporteur id
+}

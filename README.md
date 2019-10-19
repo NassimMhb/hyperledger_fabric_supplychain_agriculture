@@ -9,5 +9,8 @@ acheminement d'une transaction de la récolte par l'agriculteur jusqu'a la comma
 
 ![screencapture-file-C-Users-Nassim-Desktop-agiculture-agriculture-recolter-html-2019-10-19-18_52_34](https://user-images.githubusercontent.com/25037174/67149220-e14f2a00-f2a8-11e9-9a10-c0e93102f4f0.png)
 
+![screencapture-file-C-Users-Nassim-Desktop-agiculture-agriculture-recolter-html-2019-10-19-18_52_49](https://user-images.githubusercontent.com/25037174/67149353-933b2600-f2aa-11e9-9c9f-c973f7a11987.png)
+
+
 
 
